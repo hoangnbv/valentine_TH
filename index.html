@@ -225,6 +225,10 @@ function startImageSlideshow() {
 
   center.style.opacity = 1;
 
+  // đảm bảo ảnh đầu tiên là ảnh index 0
+  currentImageIndex = 0;
+  img.src = uploadedImages[currentImageIndex];
+
   setInterval(() => {
 
     img.style.opacity = 0;
@@ -235,13 +239,15 @@ function startImageSlideshow() {
       if (currentImageIndex >= uploadedImages.length) {
         currentImageIndex = 0;
       }
+
       img.src = uploadedImages[currentImageIndex];
       img.style.opacity = 1;
       img.style.transform = "scale(1)";
-    }, 1000);
+    }, 800); // thời gian fade
 
-  }, 10000);
+  }, 10000); // mỗi ảnh 10 giây
 }
+
 
 /* ===== NHẠC ===== */
 function toggleMusic() {
@@ -272,5 +278,6 @@ setTimeout(() => {
 
 </body>
 </html>
+
 
 
